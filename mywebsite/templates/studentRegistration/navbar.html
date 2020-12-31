@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<nav class="navbar" role="navigation" aria-label="main navigation" id='nav'>
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/student">
+            <img src="{% static 'images/logo.png' %}" width="140" height="50">
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+            data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item active" href="/student">
+                Home
+            </a>
+            <a class="navbar-item " href="{% url 'student:dashboard' %}">
+                Dashboard
+            </a>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary is-light " href="/student">
+                        <strong><i class="fa fa-user" aria-hidden="true"></i> {{user.username}}</strong>
+                    </a>
+                    <a class="button is-danger is-light" href="{% url 'student:logout'%}">
+                        <strong>Log out</strong>
+                    </a>
+                </div>
+            </div>
+            {% else %}
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-success is-light " href="{% url 'student:register'%}">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light is-danger" href="{% url 'student:login'%}">
+                        <strong>Log in</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+    </div>
+</nav>
+<style>
+    .navbar-item:hover {
+        color: #8300E9 !important;
+    }
+
+    .active {
+        color: #8300E9;
+    }
+</style>
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("nav");
+    var btns = header.getElementsByClassName("navbar-item");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" active", "");
+            }
+            this.className += " active";
+        });
+    }
+</script>

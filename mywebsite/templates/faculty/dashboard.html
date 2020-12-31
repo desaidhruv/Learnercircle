@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="setRandomColor()">
+    <div id="wrapper">
+
+        <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <h2>Logo</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li>
+                    <a class="active" href="{% url 'faculty:dashboard' %}" style="border-radius: 0px 15px 15px 0px;"><i
+                            class="fa fa-home"></i>Home</a>
+                </li>
+                <li>
+                    <a class="" href="{% url 'faculty:profile_section' %}" style="border-radius: 0px 15px 15px 0px;"><i
+                            class="fa fa-user"></i>Profile Section</a>
+                </li>
+                <li>
+                    <a class="" href="{% url 'faculty:bank_details' %}" style="border-radius: 0px 15px 15px 0px;"><i
+                            class="fa fa-university" aria-hidden="true"></i>Bank
+                        Details</a>
+                </li>
+                <li>
+                    <a class="" href="{% url 'faculty:course_overview' %}" style="border-radius: 0px 15px 15px 0px;"><i
+                            class="fa fa-bookmark"></i>Course Overview</a>
+                </li>
+                <li>
+                    <a class="" href="{% url 'faculty:schedule' %}" style="border-radius: 0px 15px 15px 0px;"><i
+                            class="fa fa-calendar-times-o"></i>Schedule</a>
+                </li>
+                <li>
+                    <a class="" href="{% url 'faculty:feedback' %}" style="border-radius: 0px 15px 15px 0px;"><i
+                            class="fa fa-book"></i>Feedback</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- <div id="navbar-wrapper">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand" id="sidebar-toggle"><i style="font-size:24px" class="fa">&#xf0c9;</i></a>
+                        <a href="" class="navbar-brand">Dashboard</a>
+                    </div>
+                </div>
+            </nav>
+        </div> -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand" id="sidebar-toggle">
+                <a class="navbar-item">
+                    <!-- <i style="font-size:24px" class="fa">&#xf0c9;</i> -->
+                    <img src="{% static 'images/Ham.svg' %}" alt="">
+                </a>
+
+            </div>
+
+        </nav>
+
+        <section id="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% block content %}
+
+                    <div class="tile is-ancestor">
+                        <div class="tile is-4 is-vertical is-parent">
+                            <div class="tile is-child box" id="card1">
+                                <p class=" has-text-centered">Total Unpaid Earnings</p><br>
+                                <p class="title has-text-centered">₹ 1000</p>
+                            </div>
+                        </div>
+                        <div class="tile is-parent is-4">
+                            <div class="tile is-child box" id="card2">
+                                <p class=" has-text-centered">Next Payment Date</p><br>
+                                <p class="title has-text-centered">Sep 7, 2020</p>
+                            </div>
+                        </div>
+                        <div class="tile is-parent is-4">
+                            <div class="tile is-child box" id="card3">
+                                <p class=" has-text-centered">Total Sessions Taken</p><br>
+                                <p class="title has-text-centered">99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="title mb-4">Existing Courses</span>
+                    <span class="ml-4 title" style="margin-left:32% !important;">Upcoming Classes</span>
+                    <div class="tile is-ancestor mt-3">
+                        <div class="tile is-6 is-parent">
+                            <div class="tile is-child box">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Course Name</th>
+                                            <th>Batch size</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for i in course_data %}
+                                        <tr>
+                                            <th>{{ forloop.counter }}</th>
+                                            <td>
+                                                {{i.course_name}}
+                                            </td>
+                                            <td>
+                                                {{i.batch_count}}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tile is-parent">
+                            <div class="tile is-child box">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Dates</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in schedule_data %}
+                                        <tr>
+                                            <th>{{ forloop.counter }}</th>
+                                            <th>{{i.dates}}</th>
+                                            <td>
+                                                <button class="button is-rounded is-info is-light"
+                                                    style=" font-weight: bold;">Join now</button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="button is-light is-primary" href="{% url 'faculty:course_new' %}"><strong>Create a new
+                            Course</strong></a>
+                    {% endblock %}
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const $button = document.querySelector('#sidebar-toggle');
+        const $wrapper = document.querySelector('#wrapper');
+
+        $button.addEventListener('click', (e) => {
+            e.preventDefault();
+            $wrapper.classList.toggle('toggled');
+        });
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function setRandomColor() {
+            $("#card1").css("border-left", `6px solid ${getRandomColor()}`);
+            $("#card2").css("border-left", `6px solid ${getRandomColor()}`);
+            $("#card3").css("border-left", `6px solid ${getRandomColor()}`);
+        }
+        $(document).ready(function () {
+            $(".mdl-navigation__link").click(function () {
+                $(".mdl-navigation__link").removeClass("active");
+                // $(".tab").addClass("active"); // instead of this do the below 
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

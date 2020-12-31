@@ -1,0 +1,13 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar-item {
+    font-weight: 600;
+}
+.notification {
+    position: absolute;
+    bottom: 110px;
+    right: 10px;
+    z-index: 5;
+    width: 350px;
+}

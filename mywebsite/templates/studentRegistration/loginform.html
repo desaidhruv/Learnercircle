@@ -1,0 +1,81 @@
+{% extends "student/home.html" %}
+{% include 'studentRegistration/messages.html' %}
+
+{% load static %}
+<title>{% block title%}Login Here{% endblock %}</title>
+{% load bulma_tags %}
+{% block content %}
+<style>
+    .showPasswordToggle {
+        transition: all;
+    }
+    .showPasswordToggle:hover {
+        transform: scale(1.2);
+    }
+</style>
+<br><br>
+<div class="tile is-ancestor">
+    <div class="tile is-6 is-vertical is-parent mr-3 ml-2">
+        <article class="tile is-child">
+            <div class="content">
+                <figure class="image is-4by3">
+                    <img src="{% static 'images/Loginsvg.svg'%}">
+                </figure>
+            </div>
+        </article>
+    </div>
+    <div class="tile is-parent mr-3 ml-2">
+        <div class="tile is-child">
+            <p class="title mt-6">Log In</p>
+            <p>
+            <form action="" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control has-icons-left">
+                        <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username"
+                            maxlength="150" class=" control input" required="" id="id_username">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input type="password" name="password" autocomplete="current-password" class=" control input"
+                            required="" id="id_password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <p class="help">
+                            <a class=" is-small is-pulled-right showPasswordToggle">SHOW</a><br>
+                        </p>
+                    </div>
+                </div>
+                <p>Don't have an account? Create one <a href="{% url 'student:register' %}">here</a></p><br>
+                <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p><br>
+                <button type="submit" class="button"
+                    style="background-color: #8300e9 !important;color: white;"><strong><i
+                            class="fas fa-sign-in-alt"></i> Login</strong></button>
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    const showPasswordToggle = document.querySelector('.showPasswordToggle');
+    const passwordField = document.querySelector('#id_password');
+    
+    const handleToggleInput = (e) => {
+        if(showPasswordToggle.textContent==='SHOW'){
+            showPasswordToggle.textContent = "HIDE";
+            passwordField.setAttribute('type','text');
+        }else {
+            showPasswordToggle.textContent = "SHOW";
+            passwordField.setAttribute('type','password');
+        }
+    }
+    showPasswordToggle.addEventListener('click', handleToggleInput)
+</script>
+{% endblock %}

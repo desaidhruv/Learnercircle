@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load nbsp %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js'></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+
+        .txt {
+            color: #6331C8;
+        }
+
+        .slider-navigation-next,
+        .slider-navigation-previous {
+            background-color: #6331CB;
+            border: none;
+        }
+
+        polyline {
+            color: white !important;
+        }
+
+        .coursetxt {
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="button m-6" href="{% url 'student:competitions' %}"> <i class="fa fa-arrow-left mr-2"
+            aria-hidden="true"></i>Go
+        back</a>
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-5">
+                <div class="tile">
+                    <div class="tile is-parent">
+                        <article class="tile is-child ">
+                            <figure class="image is-4by3">
+                                <img src="{% static 'images/Origami.svg' %}">
+                            </figure>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child ">
+                    <div class="content">
+                        <p class="title text-purple">{{object.name}}</p>
+                        <p class="subtitle">{{object.description}}</p>
+                        Scheduled Date: <span class="text-purple">{{object.scheduled_date}}</span>
+                        <br>
+                        Scheduled Time: <span class="text-purple">{{object.from_time}} - {{object.to_time}}</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="tile is-ancestor">
+            <div class="tile is-6 is-vertical is-parent">
+                <div class="tile is-child">
+                    <p class="is-size-3 txt">Rules of the competition</p><br>
+                    <p class="subtitle">{{object.rules|nbsp}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-ancestor">
+            <div class="tile"></div>
+            <div class="tile is-6 is-parent box">
+                <div class="tile is-child">
+                    <p class="is-size-3 txt">Registration Form</p><br>
+                    <form method="post">
+                        <div class="field">
+                            <label for="id_name" class="label">Name:</label>
+                            <div class="control">
+                                <input type="text" name="name" maxlength="255" required="" id="id_name" class="input">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="id_email">Email</label>
+                            <div class="control">
+                                <input type="email" name="email" maxlength="254" required="" id="id_email" class="input">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="id_dob">DOB</label>
+                            <div class="control">
+                                <input type="text" name="dob" required="" id="id_dob" class="input">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="id_phone" class="label" >Phone Number:</label>
+                            <div class="control">
+                                <input type="text" name="phone" maxlength="20" required="" id="id_email" class="input">
+                            </div>
+                        </div>
+                        <input class="button" style="background-color: #6331C8; color: white;" type="submit"
+                            value="Enroll">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log(value)
+        const valueNew = value;
+        bulmaCarousel.attach('#slider', {
+            slidesToScroll: 1,
+            slidesToShow: valueNew,
+            infinite: true,
+        });
+    </script>
+</body>
+
+</html>

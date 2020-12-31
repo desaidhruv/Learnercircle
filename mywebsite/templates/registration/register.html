@@ -1,0 +1,184 @@
+{% extends "faculty/index.html" %}
+{% include 'includes/messages.html' %}
+
+{% load static %}
+
+<title>{% block title%}Register Here{% endblock %}</title>
+{% load bulma_tags %}
+{% block content %}
+<style>
+    .showPasswordToggle {
+        transition: all;
+    }
+
+    .showPasswordToggle:hover {
+        transform: scale(1.2);
+    }
+</style>
+<br>
+<div class="tile is-ancestor">
+    <div class="tile is-6 is-vertical is-parent mr-3 ml-2">
+        <article class="tile is-child">
+            <div class="content">
+                <figure class="image is-4by3">
+                    <img src="{% static 'images/Register.svg'%}">
+                </figure>
+            </div>
+        </article>
+    </div>
+    <div class="tile is-parent mr-3 ml-2">
+        <div class="tile is-child">
+            <p class="title">Sign Up</p>
+            <p>
+            <form action="" method="POST" class="form-group">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label ">Username</label>
+                    <div class="control has-icons-left">
+                        <input type="text" name="username" maxlength="150" class=" control input" required=""
+                            id="id_username" onkeyup="checkuser()">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <p class="help">
+                            Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <p id="usernameResult" style="color: red;"></p>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left">
+                        <input type="email" name="email" class=" control input" required="" id="id_email"
+                            onkeyup="checkemail()">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <p id="emailResult" style="color: red;"></p>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input type="password" name="password1" autocomplete="new-password" class=" control input"
+                            required="" id="id_password1">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <p class="help">
+                            <a class=" is-small is-pulled-right showPasswordToggle">SHOW</a><br>
+                        </p>
+                        <ul>
+                            <li>Your password can’t be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can’t be a commonly used password.</li>
+                            <li>Your password can’t be entirely numeric.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password confirmation</label>
+                    <div class="control has-icons-left">
+                        <input type="password" name="password2" autocomplete="new-password" class=" control input"
+                            required="" id="id_password2" onkeypress="checkPass();">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <p class="help">
+                            Enter the same password as before, for verification.
+                        </p>
+                    </div>
+                    <span id='message'></span>
+                </div>
+                <button type="submit" class="button " id="btn"
+                    style="background-color: #8300e9 !important;color: white;"><strong><i class="fas fa-user-plus"></i>
+                        Register</strong></button>
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // $(document).ready(function () {
+    //     $('#btn').click(function () {
+    //         $('#btn').addClass(' is-loading')
+    //     });
+
+    // });
+    // $(window).on("load", function () {
+    //     $('#btn').click(function () {
+    //         $('#btn').addClass(' is-loading').fadeOut("slow");
+    //     });
+    //     // $(".loader-wrapper").fadeOut("slow");
+    // });
+
+    const showPasswordToggle = document.querySelector('.showPasswordToggle');
+    const passwordField = document.querySelector('#id_password1');
+
+    const handleToggleInput = (e) => {
+        if (showPasswordToggle.textContent === 'SHOW') {
+            showPasswordToggle.textContent = "HIDE";
+            passwordField.setAttribute('type', 'text');
+        } else {
+            showPasswordToggle.textContent = "SHOW";
+            passwordField.setAttribute('type', 'password');
+        }
+    }
+    showPasswordToggle.addEventListener('click', handleToggleInput)
+    function checkuser() {
+        let username = document.getElementById('id_username').value;
+        $.ajax({
+            url: "{% url 'faculty:check_user' %}",
+            type: "get",
+            data: {
+                username: username
+            },
+            success: function (data) {
+                if (data == "UsernameExists") {
+                    $('#usernameResult').html(`<i class="fa fa-window-close" aria-hidden="true"></i> The username already exists.`);
+                    $('#id_username').addClass('is-danger');
+                    $('#btn').attr('disabled', 'disabled');
+                } else {
+                    $('#usernameResult').html("");
+                    $('#id_username').removeClass('is-danger');
+                    $('#btn').removeAttr('disabled');
+                }
+            }
+        })
+    }
+
+    function checkemail() {
+        let email = document.getElementById('id_email').value;
+        $.ajax({
+            url: "{% url 'faculty:check_email' %}",
+            type: "get",
+            data: {
+                email: email
+            },
+            success: function (data) {
+                if (data == "EmailExists") {
+                    $('#emailResult').html(`<i class="fa fa-window-close" aria-hidden="true"></i> The email id already exists.`);
+                    $('#id_email').addClass('is-danger');
+                    $('#btn').attr('disabled', 'disabled');
+                } else {
+                    $('#emailResult').html("");
+                    $('#id_email').removeClass('is-danger');
+                    $('#btn').removeAttr('disabled');
+                }
+            }
+        })
+    }
+    $('#id_password1, #id_password2').on('keyup', function () {
+        if ($('#id_password1').val() == $('#id_password2').val()) {
+            $('#message').html(`<i class="fa fa-check-square" aria-hidden="true"></i> Passwords are matching`).css('color', 'green');
+        } else
+            $('#message').html('<i class="fa fa-window-close" aria-hidden="true"></i> Entered Password is not matching! Please Try Again').css('color', 'red');
+    });
+</script>
+
+{% endblock %}

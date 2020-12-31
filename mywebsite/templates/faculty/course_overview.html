@@ -1,0 +1,204 @@
+{% extends "faculty/dashboard.html" %}
+{% include 'includes/messages.html' %}
+{% load static %}
+<title>{% block title%}Course Section{% endblock %}</title>
+{% load bulma_tags %}
+{% block content %}
+<script src="https://cdn.jotfor.ms/common/lib.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.21016" type="text/javascript"></script>
+<script type="text/javascript">
+    JotForm.init(function () {
+        if (window.JotForm && JotForm.accessible) $('input_3').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_4').setAttribute('tabindex', 0);
+
+
+        if (window.commonLib && window.commonLib.BGColorLightness('#fff')) {
+            document.getElementById('FITB_18').setAttribute('data-darkmode', 'true');
+        }
+        setTimeout(function () {
+            $('input_5').hint('ex: 8 - 16');
+        }, 20);
+        if (window.JotForm && JotForm.accessible) $('input_6').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_7').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_10').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_12').setAttribute('tabindex', 0);
+
+
+        if (window.commonLib && window.commonLib.BGColorLightness('#fff')) {
+            document.getElementById('FITB_19').setAttribute('data-darkmode', 'true');
+        }
+        JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.newPaymentUIForNewCreatedForms = true;
+        JotForm.newPaymentUI = true;
+        JotForm.alterTexts(undefined);
+        JotForm.clearFieldOnHide = "disable";
+        JotForm.submitError = "jumpToFirstError";
+        /*INIT-END*/
+    });
+
+    JotForm.prepareCalculationsOnTheFly([null, { "name": "courseOverview", "qid": "1", "text": "Course Overview", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Submit", "type": "control_button" }, { "description": "", "name": "courseName", "qid": "3", "subLabel": "", "text": "Course name", "type": "control_textbox" }, { "description": "", "name": "courseSubtitle", "qid": "4", "subLabel": "", "text": "Course subtitle ", "type": "control_textbox" }, { "description": "", "name": "ageGroup", "qid": "5", "subLabel": "", "text": "Age group", "type": "control_number" }, { "description": "", "name": "batchSize", "qid": "6", "subLabel": "", "text": "Batch size", "type": "control_textbox" }, { "description": "", "name": "mediumOf", "qid": "7", "subLabel": "", "text": "Medium of Instruction", "type": "control_textbox" }, null, { "description": "", "name": "level", "qid": "9", "subLabel": "", "text": "Level", "type": "control_dropdown" }, { "description": "", "name": "courseRequirements", "qid": "10", "subLabel": "", "text": "Course Requirements", "type": "control_textbox" }, null, { "description": "", "name": "topicsCovered", "qid": "12", "subLabel": "", "text": "Topics Covered", "type": "control_textarea" }, null, null, null, null, null, { "description": "", "name": "input18", "qid": "18", "template": "Duration:  {shorttext-1} out of 16 Hours.", "text": "", "type": "control_inline" }, { "description": "", "name": "input19", "qid": "19", "template": "Payment terms:  {number-1}   per session. ", "text": "", "type": "control_inline" }]);
+    setTimeout(function () {
+        JotForm.paymentExtrasOnTheFly([null, { "name": "courseOverview", "qid": "1", "text": "Course Overview", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Submit", "type": "control_button" }, { "description": "", "name": "courseName", "qid": "3", "subLabel": "", "text": "Course name", "type": "control_textbox" }, { "description": "", "name": "courseSubtitle", "qid": "4", "subLabel": "", "text": "Course subtitle ", "type": "control_textbox" }, { "description": "", "name": "ageGroup", "qid": "5", "subLabel": "", "text": "Age group", "type": "control_number" }, { "description": "", "name": "batchSize", "qid": "6", "subLabel": "", "text": "Batch size", "type": "control_textbox" }, { "description": "", "name": "mediumOf", "qid": "7", "subLabel": "", "text": "Medium of Instruction", "type": "control_textbox" }, null, { "description": "", "name": "level", "qid": "9", "subLabel": "", "text": "Level", "type": "control_dropdown" }, { "description": "", "name": "courseRequirements", "qid": "10", "subLabel": "", "text": "Course Requirements", "type": "control_textbox" }, null, { "description": "", "name": "topicsCovered", "qid": "12", "subLabel": "", "text": "Topics Covered", "type": "control_textarea" }, null, null, null, null, null, { "description": "", "name": "input18", "qid": "18", "template": "Duration:  {shorttext-1} out of 16 Hours.", "text": "", "type": "control_inline" }, { "description": "", "name": "input19", "qid": "19", "template": "Payment terms:  {number-1}   per session. ", "text": "", "type": "control_inline" }]);
+    }, 20); 
+</script>
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.21016" />
+<link type="text/css" rel="stylesheet"
+    href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f7ed99c2c2c7240ba580251" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_styles.css?3.3.21016" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_feature.css?3.3.21016" />
+<form class="jotform-form" action="{% url 'faculty:course_overview_submit' %}" method="post" name="form_202882944433056"
+    id="202882944433056" accept-charset="utf-8" autocomplete="on" style="margin-top: -30px;">
+    {% csrf_token %}
+    <input type="hidden" name="formID" value="202882944433056" />
+    <input type="hidden" id="JWTContainer" value="" />
+    <input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                    <div class="header-text httal htvam">
+                        <h1 id="header_1" class="form-header" data-component="header">
+                            Course Overview
+                        </h1>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line always-hidden" data-type="control_textbox" id="id_16">
+                <label class="form-label form-label-top form-label-auto" id="label_16" for="input_16"> Username </label>
+                <div id="cid_16" class="form-input-wide always-hidden" data-layout="half">
+                    <input type="text" id="input_16" name="q16_username" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="{{ user.username }}" data-component="textbox"
+                        aria-labelledby="label_16" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_3">
+                <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3"> Course name
+                </label>
+                <div id="cid_3" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_3" name="q3_courseName" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_3" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_4">
+                <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4"> Course subtitle
+                </label>
+                <div id="cid_4" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_4" name="q4_courseSubtitle" data-type="input-textbox"
+                        class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                        aria-labelledby="label_4" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_inline" id="id_18">
+                <div id="cid_18" class="form-input-wide" data-layout="full">
+                    <div id="FITB_18" class="FITB formRender">
+                        <p>Duration: <span data-type="textbox" data-grouptype="control_textbox"
+                                class="FITB-inptCont"><input type="text" class="form-textbox "
+                                    name="q18_input18[shorttext-1]" id="shorttext-1" required="" /><label
+                                    for="shorttext-1">hours</label></span> out of {{field_value}} Hours.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_number" id="id_5">
+                <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5"> Age group </label>
+                <div id="cid_5" class="form-input-wide" data-layout="half">
+                    <input type="number" id="input_5" name="q5_ageGroup" data-type="input-number"
+                        class=" form-number-input form-textbox" style="width:310px" size="310" value=""
+                        placeholder="ex: 8 - 16" data-component="number" aria-labelledby="label_5" step="any" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_6">
+                <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6"> Batch size </label>
+                <div id="cid_6" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_6" name="q6_batchSize" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_6" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_7">
+                <label class="form-label form-label-top form-label-auto" id="label_7" for="input_7"> Medium of
+                    Instruction </label>
+                <div id="cid_7" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_7" name="q7_mediumOf" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_7" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_dropdown" id="id_9">
+                <label class="form-label form-label-top form-label-auto" id="label_9" for="input_9"> Level </label>
+                <div id="cid_9" class="form-input-wide" data-layout="half">
+                    <select class="form-dropdown" id="input_9" name="q9_level" style="width:310px"
+                        data-component="dropdown" aria-labelledby="label_9">
+                        <option value=""> Please Select </option>
+                        <option value="Beginner"> Beginner </option>
+                        <option value="Medium"> Medium </option>
+                        <option value="Expert"> Expert </option>
+                    </select>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_10">
+                <label class="form-label form-label-top form-label-auto" id="label_10" for="input_10"> Course
+                    Requirements </label>
+                <div id="cid_10" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_10" name="q10_courseRequirements" data-type="input-textbox"
+                        class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                        aria-labelledby="label_10" />
+                </div>
+            </li>
+            <li class="form-line fixed-width" data-type="control_textarea" id="id_12">
+                <label class="form-label form-label-top form-label-auto" id="label_12" for="input_12"> Topics Covered
+                </label>
+                <div id="cid_12" class="form-input-wide" data-layout="full">
+                    <textarea id="input_12" class="form-textarea" name="q12_topicsCovered"
+                        style="width:300px;height:120px" data-component="textarea"
+                        aria-labelledby="label_12"></textarea>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_inline" id="id_19">
+                <div id="cid_19" class="form-input-wide" data-layout="full">
+                    <div id="FITB_19" class="FITB formRender">
+                        <p>Payment terms: <span data-type="textbox" data-grouptype="control_number"
+                                class="FITB-inptCont"><input type="number"
+                                    class="form-textbox form-number-input validate[]" name="q19_input19[number-1]"
+                                    id="number-1" required="" /><label for="number-1">Rs.</label></span> per session.
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_button" id="id_2">
+                <div id="cid_2" class="form-input-wide" data-layout="full">
+                    <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                        <button id="input_2" type="submit"
+                            class="form-submit-button submit-button jf-form-buttons jsTest-submitField"
+                            data-component="button" data-content="">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li style="display:none">
+                Should be Empty:
+                <input type="text" name="website" value="" />
+            </li>
+        </ul>
+    </div>
+    <script>
+        JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+        JotForm.poweredByText = "Powered by JotForm";
+    </script>
+    <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="202882944433056" />
+    <script type="text/javascript">
+        var all_spc = document.querySelectorAll("form[id='202882944433056'] .si" + "mple" + "_spc");
+        for (var i = 0; i < all_spc.length; i++) {
+            all_spc[i].value = "202882944433056-202882944433056";
+        }
+    </script>
+    <div class="formFooter-heightMask">
+    </div>
+</form>
+<script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.21016"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.21016"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% endblock %}

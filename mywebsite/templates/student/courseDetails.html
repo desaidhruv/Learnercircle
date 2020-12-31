@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js'></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+
+        .txt {
+            color: #6331C8;
+        }
+
+        .slider-navigation-next,
+        .slider-navigation-previous {
+            background-color: #6331CB;
+            border: none;
+        }
+
+        polyline {
+            color: white !important;
+        }
+
+        .coursetxt {
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="button m-6" href="{% url 'student:mycourses' %}"> <i class="fa fa-arrow-left mr-2"
+            aria-hidden="true"></i>Go
+        back</a>
+    <div class="container">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet"
+                style=" background-color:#E5E5E5; height:250px; ">
+                <img src="{% static 'images/Banner.svg' %}" alt="">
+            </div>
+        </div>
+
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-5">
+                <div class="tile">
+                    <div class="tile is-parent">
+                        <article class="tile is-child ">
+                            <figure class="image is-4by3">
+                                <img src="{% static 'images/Origami.svg' %}">
+                            </figure>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child ">
+                    <div class="content">
+                        <p class="title text-purple">{{object.course_name}}</p>
+                        <p class="is-pulled-right text-purple is-size-4">Rs. 199/-</p>
+                        <p class="subtitle has-text-weight-bold">{{object.fname}} {{object.lname}}</p>
+                        <p class="subtitle"><strong>5.0</strong>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            </h3>
+                        </p>
+                        <small>*This course is free for registered members</small>
+                        <div class="content mt-3">
+                            <h3 class="">Batch Starts From <span class="txt">01 November 2020</span> </h3>
+                            <h4 class=""> <b>Course Period:</b> {{object.duration}} </h4>
+                            <h4 class=""> <b>Day:</b> {{object.days}}</h4>
+                            <h4 class=""> <b>Time:</b> 5:00 pm - 6:00 pm </h4>
+                            <button class="button" style="background-color: #6331C8; color: white;">Enroll
+                                Now</button><br>
+                            <span>*Enroll today and earn 10 points</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="tile is-ancestor">
+            <div class="tile is-6 is-vertical is-parent">
+                <div class="tile is-child">
+                    <p class="is-size-3 txt">About This Course</p><br>
+                    <!-- <article class="media">
+                        <figure class="media-left">
+                            <p class="image is-64x64">
+                                <img src="{% static 'images/age.svg' %}">
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="title mt-3">
+                                    <strong>8 to 12 years of age</strong>
+                                    <br>
+                                </p>
+                            </div>
+                        </div>
+                    </article> -->
+                    <!-- Icon List -->
+
+
+                    <ul class="demo-list-icon mdl-list">
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="{% static 'images/age.svg' %}">
+                                <span class="is-size-4 coursetxt">
+                                    {{object.age_group}} years of age
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="{% static 'images/time.svg' %}">
+                                <span class="is-size-4 coursetxt">
+                                    45 Minutes
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="{% static 'images/learnersno.svg' %}">
+                                <span class="is-size-4 coursetxt">
+                                    10 Learners
+                                </span>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <img src="{% static 'images/mediumOfInstruction.svg' %}">
+                                <span class="is-size-4 coursetxt">
+                                    {{object.medium}}
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <div class="tile is-child">
+                    <p class="title txt">Requirements</p>
+                    <p class="title">{{object.things}}</p>
+                </div>
+            </div>
+        </div>
+        <p class="title txt">Key Learnings</p>
+        <div class="buttons">
+            <button class="button is-primary is-light mr-6"
+                style="width:350px; background-color: #F5C528; color: white;"><strong>{{object.key_learnings}}</strong></button>
+            <button class="button is-link is-light mx-6"
+                style="width:350px; background-color: #FF9161; color: white;"><strong>Fine Motor Skills</strong></button>
+            <button class="button is-info is-light ml-6"
+                style="width:350px; background-color: #E93A44; color: white;"><strong>Folding</strong></button>
+        </div>
+
+        <div class="buttons">
+            <button class="button is-success is-light mr-6"
+                style="width:350px; background-color: #F5C528; color: white;"><strong>Spatial Awarness</strong></button>
+            <button class="button is-warning is-light mx-6"
+                style="width:350px; background-color: #E93A44; color: white;"><strong>Visualization</strong></button>
+        </div>
+        <br>
+        <script>var value = -1;</script>
+        {% for i in courses %}
+        <script>value = value + 1;</script>
+        {% endfor %}
+        <p class="title txt">Popular Courses</p>
+        <section class="section">
+            <div class="container is-clipped">
+                <div id="slider" class="tile is-ancestor mx-5">
+                    {% for i in courses %}
+                    <div class="tile is-parent">
+                        <article class="tile is-child ">
+                            <figure class="image is-4by3">
+                                <a href="{{i.get_absolute_url}}">
+                                    <img src="{% static 'images/courseImage.svg' %}">
+                                </a>
+                            </figure>
+                            <progress class="progress mb-2 is-primary" value="40" max="100">15%</progress>
+                            <p><a class=" is-pulled-right"><img src="{% static 'images/bookmark.svg' %}" alt=""></a></p>
+                            <h2 class="is-size-4">{{i.course_name}}</h2>
+                            <h3 class="is-size-5">{{i.fname}} {{i.lname}} <span><strong>5.0</strong></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </h3>
+                        </article>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        console.log(value)
+        const valueNew = value;
+        bulmaCarousel.attach('#slider', {
+            slidesToScroll: 1,
+            slidesToShow: valueNew,
+            infinite: true,
+        });
+    </script>
+</body>
+
+</html>

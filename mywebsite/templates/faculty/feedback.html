@@ -1,0 +1,141 @@
+{% extends "faculty/dashboard.html" %}
+{% include 'includes/messages.html' %}
+
+{% load static %}
+<title>{% block title%}Feedback{% endblock %}</title>
+{% load bulma_tags %}
+{% block content %}
+<div class="tile is-ancestor mr-3 ml-2">
+    <div class="tile is-6 is-vertical is-parent">
+        <div class="tile is-child">
+            <figure class="image is-4by3">
+                <img src="{% static 'images/feedback.svg'%}">
+            </figure>
+        </div>
+    </div>
+    <div class="tile is-parent">
+        <div class="tile is-child">
+            <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+            <script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.21259" type="text/javascript"></script>
+            <script type="text/javascript">
+                JotForm.init(function () {
+                    if (window.JotForm && JotForm.accessible) $('input_25').setAttribute('tabindex', 0);
+                    if (window.JotForm && JotForm.accessible) $('input_26').setAttribute('tabindex', 0);
+                    if (window.JotForm && JotForm.accessible) $('input_30').setAttribute('tabindex', 0);
+                    JotForm.newDefaultTheme = true;
+                    JotForm.extendsNewTheme = false;
+                    JotForm.newPaymentUIForNewCreatedForms = true;
+                    JotForm.newPaymentUI = true;
+                    JotForm.alterTexts(undefined);
+                    JotForm.clearFieldOnHide = "disable";
+                    JotForm.submitError = "jumpToFirstError";
+                    /*INIT-END*/
+                });
+
+                JotForm.prepareCalculationsOnTheFly([null, { "name": "feedbackForm", "qid": "1", "text": "Feedback Form", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Submit", "type": "control_button" }, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, { "description": "", "name": "studentName", "qid": "25", "subLabel": "", "text": "Student Name", "type": "control_textbox" }, { "description": "", "name": "batchNumber", "qid": "26", "subLabel": "", "text": "Batch Number", "type": "control_textbox" }, null, null, null, { "description": "", "name": "feedback", "qid": "30", "subLabel": "", "text": "Feedback", "type": "control_textarea" }]);
+                setTimeout(function () {
+                    JotForm.paymentExtrasOnTheFly([null, { "name": "feedbackForm", "qid": "1", "text": "Feedback Form", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Submit", "type": "control_button" }, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, { "description": "", "name": "studentName", "qid": "25", "subLabel": "", "text": "Student Name", "type": "control_textbox" }, { "description": "", "name": "batchNumber", "qid": "26", "subLabel": "", "text": "Batch Number", "type": "control_textbox" }, null, null, null, { "description": "", "name": "feedback", "qid": "30", "subLabel": "", "text": "Feedback", "type": "control_textarea" }]);
+                }, 20); 
+            </script>
+            <link type="text/css" media="print" rel="stylesheet"
+                href="https://cdn.jotfor.ms/css/printForm.css?3.3.21259" />
+            <link type="text/css" rel="stylesheet"
+                href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f7ed99c2c2c7240ba580251" />
+            <link type="text/css" rel="stylesheet"
+                href="https://cdn.jotfor.ms/css/styles/payment/payment_styles.css?3.3.21259" />
+            <link type="text/css" rel="stylesheet"
+                href="https://cdn.jotfor.ms/css/styles/payment/payment_feature.css?3.3.21259" />
+            <style type="text/css" id="form-designer-style">
+                body {
+                    background-color: white !important;
+                }
+
+                .form-label.form-label-auto {
+                    display: block;
+                    float: none;
+                    text-align: left;
+                    width: 100%;
+                }
+            </style>
+
+            <form class="jotform-form" action="https://submit.jotform.com/submit/202972140372046/" method="post"
+                name="form_202972140372046" id="202972140372046" accept-charset="utf-8" autocomplete="on" style="margin-top: -70px;">
+                <input type="hidden" name="formID" value="202972140372046" />
+                <input type="hidden" id="JWTContainer" value="" />
+                <input type="hidden" id="cardinalOrderNumber" value="" />
+                <div role="main" class="form-all">
+                    <ul class="form-section page-section">
+                        <li id="cid_1" class="form-input-wide" data-type="control_head">
+                            <div class="form-header-group  header-large">
+                                <div class="header-text httal htvam">
+                                    <h1 id="header_1" class="form-header" data-component="header">
+                                        Feedback Form
+                                    </h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_25">
+                            <label class="form-label form-label-top" id="label_25" for="input_25"> Student Name </label>
+                            <div id="cid_25" class="form-input-wide" data-layout="half">
+                                <input type="text" id="input_25" name="q25_studentName" data-type="input-textbox"
+                                    class="form-textbox" style="width:310px" size="310" value=""
+                                    data-component="textbox" aria-labelledby="label_25" />
+                            </div>
+                        </li>
+                        <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_26">
+                            <label class="form-label form-label-top" id="label_26" for="input_26"> Batch Number </label>
+                            <div id="cid_26" class="form-input-wide" data-layout="half">
+                                <input type="text" id="input_26" name="q26_batchNumber" data-type="input-textbox"
+                                    class="form-textbox" style="width:310px" size="310" value=""
+                                    data-component="textbox" aria-labelledby="label_26" />
+                            </div>
+                        </li>
+                        <li class="form-line" data-type="control_textarea" id="id_30">
+                            <label class="form-label form-label-top form-label-auto" id="label_30" for="input_30">
+                                Feedback </label>
+                            <div id="cid_30" class="form-input-wide" data-layout="full">
+                                <textarea id="input_30" class="form-textarea" name="q30_feedback"
+                                    style="width:648px;height:163px" data-component="textarea"
+                                    aria-labelledby="label_30"></textarea>
+                            </div>
+                        </li>
+                        <li class="form-line" data-type="control_button" id="id_2">
+                            <div id="cid_2" class="form-input-wide" data-layout="full">
+                                <div data-align="auto"
+                                    class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                                    <button id="input_2" type="submit"
+                                        class="form-submit-button submit-button jf-form-buttons jsTest-submitField"
+                                        data-component="button" data-content="">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="display:none">
+                            Should be Empty:
+                            <input type="text" name="website" value="" />
+                        </li>
+                    </ul>
+                </div>
+                <script>
+                    JotForm.showJotFormPowered = "new_footer";
+                </script>
+                <script>
+                    JotForm.poweredByText = "Powered by JotForm";
+                </script>
+                <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="202972140372046" />
+                <script type="text/javascript">
+                    var all_spc = document.querySelectorAll("form[id='202972140372046'] .si" + "mple" + "_spc");
+                    for (var i = 0; i < all_spc.length; i++) {
+                        all_spc[i].value = "202972140372046-202972140372046";
+                    }
+                </script>
+                <div class="formFooter-heightMask">
+                </div>
+            </form>
+            <script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.21259"></script>
+            <script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.21259"></script>
+        </div>
+    </div>
+</div>
+{% endblock %}

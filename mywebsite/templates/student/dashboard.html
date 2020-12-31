@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <style>
+        .color-overlay {
+            /* padding: 1em 2em; */
+            box-sizing: border-box;
+        }
+
+        .day-number {
+            font-size: 2.5em;
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .date-right {
+            display: inline-block;
+        }
+
+        .day-name {
+            font-size: 1em;
+        }
+
+        .month {
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 0.6em;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+        .orange-text {
+            color: #FF6927 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+        mdl-layout--fixed-header">
+        <!-- {% include 'includes/studentNavbar.html' %} -->
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button" style="border:none;">
+                                <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1"><img
+                                        src="{% static 'images/notification.svg' %}" alt="">
+                                </div>
+                            </a>
+                            <a class="button is-light is-primary">
+                                <strong> <i class="fa fa-user mr-2" aria-hidden="true"></i> {{user.username}}</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Learners Circle</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link " href="{% url 'student:courses' %}">Courses</a>
+                <a class="mdl-navigation__link active" href="{% url 'student:dashboard'%}">Dashboard</a>
+                <a class="mdl-navigation__link" href="{% url 'student:showcase'%}">Showcase</a>
+                <a class="mdl-navigation__link" href="{% url 'student:mycourses' %}">My Courses</a>
+                <a class="mdl-navigation__link" href="">Leaderboard</a>
+                <a class="mdl-navigation__link" href="{% url 'student:competitions' %}">Competition</a>
+                <a class="mdl-navigation__link" href="">Premium Courses</a>
+
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                {% block content %}
+                <p class="is-size-2 text-purple m-5">Dashboard</p>
+                <div id="currentDate" class="ml-5"></div>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet"
+                        style=" background-color:#FFECCE; height:250px; border-radius: 27px;">
+                        <p class="title mt-6 ml-5" style="color:#833F1A;">Hi, {{user.username}}!</p>
+                    </div>
+                </div>
+                <p class="is-size-2 m-5">Overview</p>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col" style=" background-color:#F5C528; border-radius:10px;">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 p-4">
+                                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <p class="title mt-5" style="color: white;">Badges and points</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col" style=" background-color:#FF9161; border-radius:10px;">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 p-4">
+                                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <p class="is-size-2" style="color: white; margin-top:13% !important;">05</p>
+                                <p class="mt-2 is-size-4" style="color: white; font-weight: 500;">Courses Completed</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col" style=" background-color:#E93A44; border-radius:10px;">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-128x128 p-4">
+                                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <p class="is-size-2" style="color: white; margin-top:13% !important;">24</p>
+                                <p class="mt-2 is-size-4" style="color: white; font-weight: 500;">Attendance</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <p class="is-size-2 m-5">Today's Learning</p>
+            <div class="container m-5 box">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img src="{% static 'images/FrenchClass.png' %}">
+                        </p>
+                    </figure>
+                    <div class="media-content ml-5">
+                        <div class="content">
+                            <span class="is-size-4 text-purple">French class</span>
+                            <p class="" style="margin-bottom: 0em !important;">Faculty: Mr Jignesh Shinde</p>
+                            <p class="">Timings: 12:00 PM to 12:45 PM</p>
+                        </div>
+                    </div>
+                    <div class="tile">Today at 12 PM</div>
+                    <div class="media-right">
+                        <button class="button" style="background-color: #401693;color: white;">Join</button>
+                    </div>
+                </article>
+            </div>
+            <div class="container m-5 box">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img src="{% static 'images/ArtClass.png' %}">
+                        </p>
+                    </figure>
+                    <div class="media-content ml-5">
+                        <div class="content">
+                            <span class="is-size-4 text-purple">Art Class</span>
+                            <p class="" style="margin-bottom: 0em !important;">Faculty: Mr Jignesh Shinde</p>
+                            <p class="">Timings: 12:00 PM to 12:45 PM</p>
+                        </div>
+                    </div>
+                    <div class="tile">Today at 6 PM</div>
+                    <div class="media-right">
+                        <button class="button" style="background-color: #401693;color: white;">Join</button>
+                    </div>
+                </article>
+            </div>
+            <div class="container m-5">
+                <div class="tile is-ancestor">
+                    <div class="tile is-parent" >
+                        <article class="tile is-child box" style="background-color: #663FB2 !important; color: white;">
+                            <div class="header">
+                                <div class="color-overlay">
+                                    <div class="day-number">30</div>
+                                    <div class="date-right">
+                                        <div class="day-name">Monday</div>
+                                        <div class="month">February 2015</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="is-size-5 mt-3">French Class</p>
+                            <span style="font-size: 0.8em;">12:00 pm to 12:45 PM</span>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <div class="header">
+                                <div class="color-overlay">
+                                    <div class="day-number text-purple">01</div>
+                                    <div class="date-right">
+                                        <div class="day-name orange-text">Monday</div>
+                                        <div class="month">February 2015</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="is-size-5 mt-3">French Class</p>
+                            <p style="font-size: 0.8em;" class="title">12:00 pm to 12:45 PM</p>
+                            <p class="is-size-5">French Class</p>
+                            <span style="font-size: 0.8em;">12:00 pm to 12:45 PM</span>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <div class="header">
+                                <div class="color-overlay">
+                                    <div class="day-number text-purple">02</div>
+                                    <div class="date-right">
+                                        <div class="day-name orange-text">Monday</div>
+                                        <div class="month">February 2015</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="is-size-5 mt-3">French Class</p>
+                            <span style="font-size: 0.8em;">12:00 pm to 12:45 PM</span>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <div class="header">
+                                <div class="color-overlay">
+                                    <div class="day-number text-purple">03</div>
+                                    <div class="date-right">
+                                        <div class="day-name orange-text">Monday</div>
+                                        <div class="month">February 2015</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="is-size-5 mt-3">French Class</p>
+                            <span style="font-size: 0.8em;">12:00 pm to 12:45 PM</span>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <div class="header">
+                                <div class="color-overlay">
+                                    <div class="day-number orange-text">04</div>
+                                    <div class="date-right">
+                                        <div class="day-name">Monday</div>
+                                        <div class="month">February 2015</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="title">Four</p>
+                            <p class="subtitle">Subtitle</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </main>
+    </div>
+
+    <script>
+        document.getElementById("currentDate").innerHTML = formatAMPM();
+
+        function formatAMPM() {
+            var d = new Date(),
+                months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday,', 'Saturday'];
+            return days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear();
+        }
+        $('#sidebar-wrapper .sidebar-nav a').on('click', function () {
+            $('#sidebar-wrapper .sidebar-nav').find('li.active').removeClass('active');
+            $(this).parent('li').addClass('active');
+        });
+    </script>
+</body>
+
+</html>

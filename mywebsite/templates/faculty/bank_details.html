@@ -1,0 +1,351 @@
+{% extends "faculty/dashboard.html" %}
+{% include 'includes/messages.html' %}
+{% load static %}
+<title>{% block title%}Bank Section{% endblock %}</title>
+{% load bulma_tags %}
+{% block content %}
+
+<script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.21020" type="text/javascript"></script>
+<script type="text/javascript">
+    JotForm.init(function () {
+        if (window.JotForm && JotForm.accessible) $('input_16').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_5').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_8').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_9').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_10').setAttribute('tabindex', 0);
+        JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.newPaymentUIForNewCreatedForms = true;
+        JotForm.newPaymentUI = true;
+        JotForm.alterTexts(undefined);
+        JotForm.clearFieldOnHide = "disable";
+        JotForm.submitError = "jumpToFirstError";
+        /*INIT-END*/
+    });
+
+    JotForm.prepareCalculationsOnTheFly([null, { "name": "bankDetails", "qid": "1", "text": "Bank Details", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Submit", "type": "control_button" }, null, null, { "description": "", "name": "accountNo", "qid": "5", "subLabel": "", "text": "Account No", "type": "control_textbox" }, { "description": "", "name": "accountType", "qid": "6", "subLabel": "", "text": "Account Type", "type": "control_dropdown" }, null, { "description": "", "name": "ifscCode", "qid": "8", "subLabel": "", "text": "IFSC Code", "type": "control_textbox" }, { "description": "", "name": "bankName", "qid": "9", "subLabel": "", "text": "Bank name", "type": "control_textbox" }, { "description": "", "name": "branch", "qid": "10", "subLabel": "", "text": "Branch", "type": "control_textbox" }, null, null, null, null, null, { "description": "", "name": "username", "qid": "16", "subLabel": "", "text": "Username", "type": "control_textbox" }]);
+    setTimeout(function () {
+        JotForm.paymentExtrasOnTheFly([null, { "name": "bankDetails", "qid": "1", "text": "Bank Details", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Submit", "type": "control_button" }, null, null, { "description": "", "name": "accountNo", "qid": "5", "subLabel": "", "text": "Account No", "type": "control_textbox" }, { "description": "", "name": "accountType", "qid": "6", "subLabel": "", "text": "Account Type", "type": "control_dropdown" }, null, { "description": "", "name": "ifscCode", "qid": "8", "subLabel": "", "text": "IFSC Code", "type": "control_textbox" }, { "description": "", "name": "bankName", "qid": "9", "subLabel": "", "text": "Bank name", "type": "control_textbox" }, { "description": "", "name": "branch", "qid": "10", "subLabel": "", "text": "Branch", "type": "control_textbox" }, null, null, null, null, null, { "description": "", "name": "username", "qid": "16", "subLabel": "", "text": "Username", "type": "control_textbox" }]);
+    }, 20); 
+</script>
+<style>
+    body {
+        background-color: white !important;
+    }
+
+    .submit-button {
+        background-color: #3300FF !important;
+        border-color: #3300FF !important;
+        border-radius: 0px !important;
+    }
+
+    .submit-button:hover {
+        background-color: #3d18ce !important;
+        border-color: #3d18ce !important;
+    }
+
+    /* Style the tab content */
+    .active {
+        /* background-color: #3300FF; */
+        color: #3300FF !important;
+    }
+
+    .tablinks:hover {
+        background-color: #F8F8F8 !important;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        float: left;
+        display: none;
+    }
+
+    .true {
+        display: block;
+    }
+
+    /* Clear floats after the tab */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.21020" />
+<link type="text/css" rel="stylesheet"
+    href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f6c4d5f89fb4a374f76b581" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_styles.css?3.3.21020" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_feature.css?3.3.21020" />
+
+{% if bank_details %}
+{% for i in bank_details %}
+
+<button onclick="undisableFieldset()" class="button mt-1 mr-6 is-rounded is-pulled-right"
+                            style="background-color: #0057FF !important;color: white;">
+                            <i class="fa fa-pencil"></i>
+                            <p class="ml-2">
+                                Edit Your Profile
+                            </p>
+                        </button>
+<form class="jotform-form" action="{% url 'faculty:bank_details_submit' %}" method="post" name="form_202805107037042"
+    id="202805107037042" accept-charset="utf-8" autocomplete="on" style="margin-top: -30px;">
+    <input type="hidden" name="formID" value="202805107037042" />
+    {% csrf_token %}
+
+    <input type="hidden" id="JWTContainer" value="" />
+    <input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                    <div class="header-text httal htvam">
+                        <h1 id="header_1" class="form-header" data-component="header">
+                            Bank Details
+                        </h1>
+                    </div>
+                </div>
+            </li>
+            <fieldset id='myFieldset' {% if i.accountNo != '' %} disabled="disabled" {% endif %}>
+                <li class="form-line always-hidden" data-type="control_textbox" id="id_16">
+                    <label class="form-label form-label-top form-label-auto" id="label_16" for="input_16"> Username
+                    </label>
+                    <div id="cid_16" class="form-input-wide always-hidden" data-layout="half">
+                        <input type="text" id="input_16" name="q16_username" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310"
+                            value="{% if i.username != '' %}{{ user.username }}{% endif %}" data-component="textbox"
+                            aria-labelledby="label_16" />
+                    </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_textbox" id="id_5">
+                    <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5">
+                        Account No
+                        <span class="form-required">
+                            *
+                        </span>
+                    </label>
+                    <div id="cid_5" class="form-input-wide jf-required" data-layout="half">
+                        <input type="text" id="input_5" name="q5_accountNo" data-type="input-textbox"
+                            class="form-textbox validate[required]" style="width:310px" size="310"
+                            value="{% if i.accountNo != '' %}{{ i.accountNo }}{% endif %}" data-component="textbox"
+                            aria-labelledby="label_5" required="" />
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_dropdown" id="id_6">
+                    <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6">
+                        Account Type
+                    </label>
+                    <div id="cid_6" class="form-input-wide" data-layout="half">
+                        <select class="form-dropdown" id="input_6" name="q6_accountType" style="width:310px"
+                            data-component="dropdown" aria-labelledby="label_6">
+                            <option value=""> Please Select </option>
+                            <option value="Savings" {% if i.accountType == 'Savings' %} selected="selected" {% endif %}>
+                                Savings </option>
+                            <option value="Current" {% if i.accountType == 'Current' %} selected="selected" {% endif %}>
+                                Current </option>
+                        </select>
+                    </div>
+                </li>
+                <li class="form-line jf-required" data-type="control_textbox" id="id_8">
+                    <label class="form-label form-label-top form-label-auto" id="label_8" for="input_8">
+                        IFSC Code
+                        <span class="form-required">
+                            *
+                        </span>
+                    </label>
+                    <div id="cid_8" class="form-input-wide jf-required" data-layout="half">
+                        <input type="text" id="input_8" name="q8_ifscCode" data-type="input-textbox"
+                            class="form-textbox validate[required]" style="width:310px" size="310"
+                            value="{% if i.ifsc != '' %}{{i.ifsc}}{% endif %}" data-component="textbox"
+                            aria-labelledby="label_8" required="" />
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_9">
+                    <label class="form-label form-label-top form-label-auto" id="label_9" for="input_9">
+                        Bank name </label>
+                    <div id="cid_9" class="form-input-wide" data-layout="half">
+                        <input type="text" id="input_9" name="q9_bankName" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310"
+                            value="{% if i.bankName != '' %}{{i.bankName}}{% endif %}" data-component="textbox"
+                            aria-labelledby="label_9" />
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_textbox" id="id_10">
+                    <label class="form-label form-label-top form-label-auto" id="label_10" for="input_10"> Branch
+                    </label>
+                    <div id="cid_10" class="form-input-wide" data-layout="half">
+                        <input type="text" id="input_10" name="q10_branch" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310"
+                            value="{% if i.branch != '' %}{{i.branch}}{% endif %}" data-component="textbox"
+                            aria-labelledby="label_10" />
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_button" id="id_2">
+                    <div id="cid_2" class="form-input-wide" data-layout="full">
+                        <div data-align="auto"
+                            class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                            <button id="input_2" type="submit"
+                                class="form-submit-button submit-button jf-form-buttons jsTest-submitField"
+                                data-component="button" data-content="">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li style="display:none">
+                    Should be Empty:
+                    <input type="text" name="website" value="" />
+                </li>
+        </ul>
+    </div>
+    <script>
+        JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+        JotForm.poweredByText = "Powered by JotForm";
+    </script>
+    <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="202805107037042" />
+    <script type="text/javascript">
+        var all_spc = document.querySelectorAll("form[id='202805107037042'] .si" + "mple" + "_spc");
+        for (var i = 0; i < all_spc.length; i++) {
+            all_spc[i].value = "202805107037042-202805107037042";
+        }
+    </script>
+    <div class="formFooter-heightMask">
+    </div>
+    </fieldset>
+
+</form>
+{% endfor %}
+
+
+
+
+
+
+
+
+{# Empty form without any pre-data#}
+{% else %}
+<form class="jotform-form" action="{% url 'faculty:bank_details_submit' %}" method="post" name="form_202805107037042"
+    id="202805107037042" accept-charset="utf-8" autocomplete="on" style="margin-top: -60px;">
+    <input type="hidden" name="formID" value="202805107037042" />
+    {% csrf_token %}
+    <input type="hidden" id="JWTContainer" value="" />
+    <input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                    <div class="header-text httal htvam">
+                        <h1 id="header_1" class="form-header" data-component="header">
+                            Bank Details
+                        </h1>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line always-hidden" data-type="control_textbox" id="id_16">
+                <label class="form-label form-label-top form-label-auto" id="label_16" for="input_16"> Username </label>
+                <div id="cid_16" class="form-input-wide always-hidden" data-layout="half">
+                    <input type="text" id="input_16" name="q16_username" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="{{ user.username }}" data-component="textbox"
+                        aria-labelledby="label_16" />
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_textbox" id="id_5">
+                <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5">
+                    Account No
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_5" class="form-input-wide jf-required" data-layout="half">
+                    <input type="text" id="input_5" name="q5_accountNo" data-type="input-textbox"
+                        class="form-textbox validate[required]" style="width:310px" size="310" value=""
+                        data-component="textbox" aria-labelledby="label_5" required="" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_dropdown" id="id_6">
+                <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6">
+                    Account Type
+                </label>
+                <div id="cid_6" class="form-input-wide" data-layout="half">
+                    <select class="form-dropdown" id="input_6" name="q6_accountType" style="width:310px"
+                        data-component="dropdown" aria-labelledby="label_6">
+                        <option value=""> Please Select </option>
+                        <option value="Savings"> Savings </option>
+                        <option value="Current"> Current </option>
+                    </select>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_textbox" id="id_8">
+                <label class="form-label form-label-top form-label-auto" id="label_8" for="input_8">
+                    IFSC Code
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_8" class="form-input-wide jf-required" data-layout="half">
+                    <input type="text" id="input_8" name="q8_ifscCode" data-type="input-textbox"
+                        class="form-textbox validate[required]" style="width:310px" size="310" value=""
+                        data-component="textbox" aria-labelledby="label_8" required="" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_9">
+                <label class="form-label form-label-top form-label-auto" id="label_9" for="input_9">
+                    Bank name </label>
+                <div id="cid_9" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_9" name="q9_bankName" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_9" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_10">
+                <label class="form-label form-label-top form-label-auto" id="label_10" for="input_10"> Branch </label>
+                <div id="cid_10" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_10" name="q10_branch" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_10" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_button" id="id_2">
+                <div id="cid_2" class="form-input-wide" data-layout="full">
+                    <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                        <button id="input_2" type="submit"
+                            class="form-submit-button submit-button jf-form-buttons jsTest-submitField"
+                            data-component="button" data-content="">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li style="display:none">
+                Should be Empty:
+                <input type="text" name="website" value="" />
+            </li>
+        </ul>
+    </div>
+    <script>
+        JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+        JotForm.poweredByText = "Powered by JotForm";
+    </script>
+    <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="202805107037042" />
+    <script type="text/javascript">
+        var all_spc = document.querySelectorAll("form[id='202805107037042'] .si" + "mple" + "_spc");
+        for (var i = 0; i < all_spc.length; i++) {
+            all_spc[i].value = "202805107037042-202805107037042";
+        }
+    </script>
+    <div class="formFooter-heightMask">
+    </div>
+</form>
+{% endif %}
+
+<script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.21020"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.21020"></script>
+<script type='text/javascript'>
+    function undisableFieldset() {
+        document.getElementById("myFieldset").disabled = false;
+    }
+</script>
+{% endblock %}

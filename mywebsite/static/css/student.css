@@ -1,0 +1,27 @@
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
+.mdl-layout__drawer {
+    background-color: #663FB3;
+}
+.mdl-navigation__link {
+    color: white !important;
+    font-weight: 700;
+}
+.mdl-navigation__link:hover, .active  {
+    background-color: white !important;
+    color: #663FB3 !important;
+}
+.mdl-layout__header-row {
+    background-color:white;
+}
+.text-purple {
+    color: #401693 !important;
+}
+#currentDate {
+    color: orange;
+}
+.mdl-layout-title {
+    font-weight: bold;
+    color: white;
+}

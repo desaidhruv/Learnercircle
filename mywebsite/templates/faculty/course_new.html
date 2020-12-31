@@ -1,0 +1,366 @@
+{% extends "faculty/dashboard.html" %}
+{% include 'includes/messages.html' %}
+{% load static %}
+<title>{% block title%}Course Section{% endblock %}</title>
+{% load bulma_tags %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.min.js"></script>
+<script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.21169" type="text/javascript"></script>
+<script type="text/javascript">
+    JotForm.init(function () {
+        if (window.JotForm && JotForm.accessible) $('input_30').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_22').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_23').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_25').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_9').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_11').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_12').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_14').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_27').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_28').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_29').setAttribute('tabindex', 0);
+        JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.newPaymentUIForNewCreatedForms = true;
+        JotForm.newPaymentUI = true;
+        JotForm.alterTexts(undefined);
+        JotForm.clearFieldOnHide = "disable";
+        JotForm.submitError = "jumpToFirstError";
+        /*INIT-END*/
+    });
+
+    JotForm.prepareCalculationsOnTheFly([null, { "name": "courseSection", "qid": "1", "text": "Course Section", "type": "control_head" }, null, { "description": "", "name": "name", "qid": "3", "text": "Name", "type": "control_fullname" }, { "description": "", "name": "email", "qid": "4", "subLabel": "Use the email ID you had used to fill the form earlier", "text": "Email", "type": "control_email" }, null, null, null, null, { "description": "", "name": "sessionOr9", "qid": "9", "subLabel": "Enter in minutes and hours. For eg: 3 hours 30 minutes.", "text": "Session or Course duration", "type": "control_textbox" }, null, { "description": "", "name": "mediumOf", "qid": "11", "subLabel": "Enter the languages you are comfortable with", "text": "Medium of Instruction", "type": "control_textbox" }, { "description": "", "name": "daysWhen", "qid": "12", "subLabel": "Don&#039;t worry this is for us to prepare for our interaction with you to schedule time-slots that&#039;s comfortable to everyone.", "text": "Days when you are comfortable to conduct online sessions", "type": "control_textbox" }, null, { "description": "", "name": "keyLearning14", "qid": "14", "subLabel": "", "text": "Key Learning or knowledge gained at the end of the program", "type": "control_textbox" }, null, null, null, null, { "name": "submit", "qid": "19", "text": "Submit", "type": "control_button" }, null, { "name": "personalInformation", "qid": "21", "text": "Personal Information", "type": "control_head" }, { "description": "", "name": "sessionOr", "qid": "22", "subLabel": "Just enter the name. Please have additional details like beginners module, expert module etc.", "text": "Session or Course Name", "type": "control_textbox" }, { "description": "", "name": "whatCould", "qid": "23", "subLabel": "", "text": "What could be the batch count? For eg: 10 to 15 student. Please feel free to enter the information as per your convenince.", "type": "control_textbox" }, { "name": "letsGet24", "qid": "24", "text": "Let's get into course or session details. This is only for one course. You will have to fill this form again for another course", "type": "control_head" }, { "description": "", "name": "sessionOr25", "qid": "25", "subLabel": "", "text": "Session or Course Details", "type": "control_textarea" }, { "name": "enterThe", "qid": "26", "text": "Enter the syllabi or structure of the Session or Course", "type": "control_head" }, { "description": "", "name": "ageGroup", "qid": "27", "subLabel": "Keep it very specific for each course. You have to enter courses seperately if the modules are different for each course.", "text": "Age group", "type": "control_textbox" }, { "description": "", "name": "prerequisites", "qid": "28", "subLabel": "What should the students know before joining the class. Like students should know alphabets before attending handwriting class", "text": "Prerequisites", "type": "control_textbox" }, { "description": "", "name": "thingsTo", "qid": "29", "subLabel": "Give instructions date-wise. Paper, pencil, colour, laptop etc.", "text": "Things to carry", "type": "control_textbox" }, { "description": "", "name": "username", "qid": "30", "subLabel": "", "text": "Username", "type": "control_textbox" }]);
+    setTimeout(function () {
+        JotForm.paymentExtrasOnTheFly([null, { "name": "courseSection", "qid": "1", "text": "Course Section", "type": "control_head" }, null, { "description": "", "name": "name", "qid": "3", "text": "Name", "type": "control_fullname" }, { "description": "", "name": "email", "qid": "4", "subLabel": "Use the email ID you had used to fill the form earlier", "text": "Email", "type": "control_email" }, null, null, null, null, { "description": "", "name": "sessionOr9", "qid": "9", "subLabel": "Enter in minutes and hours. For eg: 3 hours 30 minutes.", "text": "Session or Course duration", "type": "control_textbox" }, null, { "description": "", "name": "mediumOf", "qid": "11", "subLabel": "Enter the languages you are comfortable with", "text": "Medium of Instruction", "type": "control_textbox" }, { "description": "", "name": "daysWhen", "qid": "12", "subLabel": "Don&#039;t worry this is for us to prepare for our interaction with you to schedule time-slots that&#039;s comfortable to everyone.", "text": "Days when you are comfortable to conduct online sessions", "type": "control_textbox" }, null, { "description": "", "name": "keyLearning14", "qid": "14", "subLabel": "", "text": "Key Learning or knowledge gained at the end of the program", "type": "control_textbox" }, null, null, null, null, { "name": "submit", "qid": "19", "text": "Submit", "type": "control_button" }, null, { "name": "personalInformation", "qid": "21", "text": "Personal Information", "type": "control_head" }, { "description": "", "name": "sessionOr", "qid": "22", "subLabel": "Just enter the name. Please have additional details like beginners module, expert module etc.", "text": "Session or Course Name", "type": "control_textbox" }, { "description": "", "name": "whatCould", "qid": "23", "subLabel": "", "text": "What could be the batch count? For eg: 10 to 15 student. Please feel free to enter the information as per your convenince.", "type": "control_textbox" }, { "name": "letsGet24", "qid": "24", "text": "Let's get into course or session details. This is only for one course. You will have to fill this form again for another course", "type": "control_head" }, { "description": "", "name": "sessionOr25", "qid": "25", "subLabel": "", "text": "Session or Course Details", "type": "control_textarea" }, { "name": "enterThe", "qid": "26", "text": "Enter the syllabi or structure of the Session or Course", "type": "control_head" }, { "description": "", "name": "ageGroup", "qid": "27", "subLabel": "Keep it very specific for each course. You have to enter courses seperately if the modules are different for each course.", "text": "Age group", "type": "control_textbox" }, { "description": "", "name": "prerequisites", "qid": "28", "subLabel": "What should the students know before joining the class. Like students should know alphabets before attending handwriting class", "text": "Prerequisites", "type": "control_textbox" }, { "description": "", "name": "thingsTo", "qid": "29", "subLabel": "Give instructions date-wise. Paper, pencil, colour, laptop etc.", "text": "Things to carry", "type": "control_textbox" }, { "description": "", "name": "username", "qid": "30", "subLabel": "", "text": "Username", "type": "control_textbox" }]);
+    }, 20); 
+</script>
+<style>
+    body {
+        background-color: white !important;
+    }
+
+    .submit-button {
+        background-color: #3300FF !important;
+        border-color: #3300FF !important;
+        border-radius: 0px !important;
+    }
+
+    .submit-button:hover {
+        background-color: #3d18ce !important;
+        border-color: #3d18ce !important;
+    }
+
+    /* Style the tab content */
+    .active {
+        /* background-color: #3300FF; */
+        color: #3300FF !important;
+    }
+
+    .tablinks:hover {
+        background-color: #F8F8F8 !important;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        float: left;
+        display: none;
+    }
+
+    .true {
+        display: block;
+    }
+
+    /* Clear floats after the tab */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.21169" />
+<link id="custom-font" type="text/css" rel="stylesheet"
+    href="https://cdn.jotfor.ms/opt/google-fonts/Roboto/fontface.css" />
+<link type="text/css" rel="stylesheet"
+    href="https://cdn.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f6c4d5f89fb4a374f76b581" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_styles.css?3.3.21169" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/payment/payment_feature.css?3.3.21169" />
+<form class="jotform-form" action="{% url 'faculty:course_section_submit' %}" method="post" name="form_202784732196058"
+    id="202784732196058" accept-charset="utf-8" autocomplete="on" style="margin-top: -60px;">
+    {% csrf_token %}
+    <input type="hidden" name="formID" value="202784732196058" />
+    <input type="hidden" id="JWTContainer" value="" />
+    <input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                    <div class="header-text httal htvam">
+                        <h1 id="header_1" class="form-header" data-component="header">
+                            Course Section
+                        </h1>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line always-hidden" data-type="control_textbox" id="id_30">
+                <label class="form-label form-label-top form-label-auto" id="label_30" for="input_30"> Username
+                </label>
+                <div id="cid_30" class="form-input-wide always-hidden" data-layout="half">
+                    <input type="text" id="input_30" name="q30_username" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="{{user.username}}" data-component="textbox"
+                        aria-labelledby="label_30" />
+                </div>
+            </li>
+            <li id="cid_21" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-small">
+                    <div class="header-text httal htvam">
+                        <h3 id="header_21" class="form-header" data-component="header">
+                            Personal Information
+                        </h3>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_fullname" id="id_3">
+                <label class="form-label form-label-top form-label-auto" id="label_3" for="first_3">
+                    Name </label>
+                <div id="cid_3" class="form-input-wide" data-layout="full">
+                    <div data-wrapper-react="true">
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+                            <input type="text" id="first_3" name="q3_name[first]" class="form-textbox" size="10"
+                                value="" data-component="first" aria-labelledby="label_3 sublabel_3_first" />
+                            <label class="form-sub-label" for="first_3" id="sublabel_3_first" style="min-height:13px"
+                                aria-hidden="false"> First Name </label>
+                        </span>
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
+                            <input type="text" id="last_3" name="q3_name[last]" class="form-textbox" size="15" value=""
+                                data-component="last" aria-labelledby="label_3 sublabel_3_last" />
+                            <label class="form-sub-label" for="last_3" id="sublabel_3_last" style="min-height:13px"
+                                aria-hidden="false"> Last Name </label>
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line form-line-column form-col-1 jf-required" data-type="control_email" id="id_4">
+                <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4">
+                    Email
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_4" class="form-input-wide jf-required" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="email" id="input_4" name="q4_email" class="form-textbox validate[required, Email]"
+                            style="width:310px" size="310" value="" data-component="email"
+                            aria-labelledby="label_4 sublabel_input_4" required="" />
+                        <label class="form-sub-label" for="input_4" id="sublabel_input_4" style="min-height:13px"
+                            aria-hidden="false"> Use the email ID you had
+                            used to fill the form earlier </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_dropdown" id="id_8">
+                <label class="form-label form-label-top form-label-auto" id="label_8" for="input_8"> Course Category </label>
+                <div id="cid_8" class="form-input-wide" data-layout="half">
+                <select class="form-dropdown" id="input_8" name="q8_category" style="width:310px" data-component="dropdown" aria-labelledby="label_8">
+                    <option value=""> Select Course Category </option>
+                    <option value="AC"> Art &amp; Craft </option>
+                    <option value="FR"> Food Recipes </option>
+                    <option value="L"> Language </option>
+                </select>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_22">
+                <label class="form-label form-label-top form-label-auto" id="label_22" for="input_22"> Session or
+                    Course
+                    Name </label>
+                <div id="cid_22" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_22" name="q22_sessionOr" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_22 sublabel_input_22" />
+                        <label class="form-sub-label" for="input_22" id="sublabel_input_22" style="min-height:13px"
+                            aria-hidden="false"> Just enter the name. Please
+                            have additional details like beginners
+                            module, expert module etc. </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_23">
+                <label class="form-label form-label-top form-label-auto" id="label_23" for="input_23"> What could be
+                    the
+                    batch count? For eg: 10 to 15 student. Please feel free to enter the information
+                    as per your
+                    convenince. </label>
+                <div id="cid_23" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_23" name="q23_whatCould" data-type="input-textbox" class="form-textbox"
+                        style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_23" />
+                </div>
+            </li>
+            <li id="cid_24" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-small">
+                    <div class="header-text httal htvam">
+                        <h3 id="header_24" class="form-header" data-component="header">
+                            Let&#x27;s get into course or session details. This is only for one
+                            course. You will have to
+                            fill this form again for another course
+                        </h3>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textarea" id="id_25">
+                <label class="form-label form-label-top form-label-auto" id="label_25" for="input_25"> Session or
+                    Course
+                    Details </label>
+                <div id="cid_25" class="form-input-wide" data-layout="full">
+                    <textarea id="input_25" class="form-textarea" name="q25_sessionOr25"
+                        style="width:648px;height:163px" data-component="textarea"
+                        aria-labelledby="label_25"></textarea>
+                </div>
+            </li>
+            <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_9">
+                <label class="form-label form-label-top form-label-auto" id="label_9" for="input_9">
+                    Session or Course
+                    duration </label>
+                <div id="cid_9" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_9" name="q9_sessionOr9" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_9 sublabel_input_9" />
+                        <label class="form-sub-label" for="input_9" id="sublabel_input_9" style="min-height:13px"
+                            aria-hidden="false"> Enter in minutes and hours.
+                            For eg: 3 hours 30 minutes. </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_11">
+                <label class="form-label form-label-top form-label-auto" id="label_11" for="input_11"> Medium of
+                    Instruction </label>
+                <div id="cid_11" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_11" name="q11_mediumOf" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_11 sublabel_input_11" />
+                        <label class="form-sub-label" for="input_11" id="sublabel_input_11" style="min-height:13px"
+                            aria-hidden="false"> Enter the languages you are
+                            comfortable with </label>
+                    </span>
+                </div>
+            </li>
+            <li id="cid_26" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-small">
+                    <div class="header-text httal htvam">
+                        <h3 id="header_26" class="form-header" data-component="header">
+                            Enter the syllabi or structure of the Session or Course
+                        </h3>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_12">
+                <label class="form-label form-label-top form-label-auto" id="label_12" for="input_12"> Days when you
+                    are
+                    comfortable to conduct online sessions </label>
+                <div id="cid_12" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_12" name="q12_daysWhen" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_12 sublabel_input_12" />
+                        <label class="form-sub-label" for="input_12" id="sublabel_input_12" style="min-height:13px"
+                            aria-hidden="false"> Don't worry this is for us
+                            to prepare for our interaction with you to
+                            schedule time-slots that's comfortable to everyone. </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_14">
+                <label class="form-label form-label-top form-label-auto" id="label_14" for="input_14"> Key Learning
+                    or
+                    knowledge gained at the end of the program </label>
+                <div id="cid_14" class="form-input-wide" data-layout="half">
+                    <input type="text" id="input_14" name="q14_keyLearning14" data-type="input-textbox"
+                        class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                        aria-labelledby="label_14" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_27">
+                <label class="form-label form-label-top form-label-auto" id="label_27" for="input_27"> Age group
+                </label>
+                <div id="cid_27" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_27" name="q27_ageGroup" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_27 sublabel_input_27" />
+                        <label class="form-sub-label" for="input_27" id="sublabel_input_27" style="min-height:13px"
+                            aria-hidden="false"> Keep it very specific for
+                            each course. You have to enter courses
+                            seperately if the modules are different for each course. </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_28">
+                <label class="form-label form-label-top form-label-auto" id="label_28" for="input_28"> Prerequisites
+                </label>
+                <div id="cid_28" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_28" name="q28_prerequisites" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_28 sublabel_input_28" />
+                        <label class="form-sub-label" for="input_28" id="sublabel_input_28" style="min-height:13px"
+                            aria-hidden="false"> What should the students
+                            know before joining the class. Like students
+                            should know alphabets before attending handwriting class </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_textbox" id="id_29">
+                <label class="form-label form-label-top form-label-auto" id="label_29" for="input_29"> Things to
+                    carry
+                </label>
+                <div id="cid_29" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_29" name="q29_thingsTo" data-type="input-textbox"
+                            class="form-textbox" style="width:310px" size="310" value="" data-component="textbox"
+                            aria-labelledby="label_29 sublabel_input_29" />
+                        <label class="form-sub-label" for="input_29" id="sublabel_input_29" style="min-height:13px"
+                            aria-hidden="false"> Give instructions
+                            date-wise. Paper, pencil, colour, laptop etc.
+                        </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_button" id="id_19">
+                <div id="cid_19" class="form-input-wide" data-layout="full">
+                    <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                        <button id="input_19" type="submit"
+                            class="form-submit-button submit-button jf-form-buttons jsTest-submitField"
+                            data-component="button" data-content="">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li style="display:none">
+                Should be Empty:
+                <input type="text" name="website" value="" />
+            </li>
+        </ul>
+    </div>
+    <script>
+        JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+        JotForm.poweredByText = "Powered by JotForm";
+    </script>
+    <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="202784732196058" />
+    <script type="text/javascript">
+        var all_spc = document.querySelectorAll("form[id='202784732196058'] .si" + "mple" + "_spc");
+        for (var i = 0; i < all_spc.length; i++) {
+            all_spc[i].value = "202784732196058-202784732196058";
+        }
+    </script>
+    <div class="formFooter-heightMask">
+    </div>
+</form>
+
+<script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.21169"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.21169"></script>
+{% endblock %}
